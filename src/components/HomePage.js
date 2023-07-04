@@ -1,5 +1,5 @@
 import React from 'react';
-import cognitoConfig from '../cognitoConfig';
+import cognitoConfig from '../config/cognitoConfig';
 
 const HomePage = () => {
   const signUpUrl = `${cognitoConfig.domain}/signup?response_type=token&client_id=${cognitoConfig.clientId}&redirect_uri=${cognitoConfig.callbackUrl}`;
