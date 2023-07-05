@@ -11,9 +11,9 @@ const App = () => {
   }, []);
 
   const checkAuthStatus = () => {
-    const token = getTokenFromURL(); // Implement your logic to get the token from the URL
-    if (token) {
-      storeToken(token); // Implement your logic to store the token
+    const idToken = getTokenFromURL(); // Implement your logic to get the id_token from the URL
+    if (idToken) {
+      storeToken(idToken); // Implement your logic to store the token
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);
@@ -21,10 +21,9 @@ const App = () => {
   };
 
   const getTokenFromURL = () => {
-    // Implement your logic to retrieve the token from the URL
-    // You can use the URLSearchParams API or any other method to extract the token from the URL
+    // Implement your logic to retrieve the id_token from the URL
     const searchParams = new URLSearchParams(window.location.search);
-    return searchParams.get('token');
+    return searchParams.get('id_token');
   };
 
   const storeToken = (token) => {
