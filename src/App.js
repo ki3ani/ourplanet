@@ -11,17 +11,25 @@ const App = () => {
   }, []);
 
   const checkAuthStatus = () => {
-    const token = getTokenFromStorage(); // Implement your logic to get the authentication token from storage
+    const token = getTokenFromURL(); // Implement your logic to get the token from the URL
     if (token) {
+      storeToken(token); // Implement your logic to store the token
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);
     }
   };
 
-  const getTokenFromStorage = () => {
-    // Implement your logic to retrieve the authentication token from storage (e.g., local storage, session storage)
-    return localStorage.getItem('authToken');
+  const getTokenFromURL = () => {
+    // Implement your logic to retrieve the token from the URL
+    // You can use the URLSearchParams API or any other method to extract the token from the URL
+    const searchParams = new URLSearchParams(window.location.search);
+    return searchParams.get('token');
+  };
+
+  const storeToken = (token) => {
+    // Implement your logic to store the token in local storage or any other storage mechanism
+    localStorage.setItem('authToken', token);
   };
 
   return (
