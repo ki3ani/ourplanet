@@ -22,8 +22,8 @@ const App = () => {
 
   const getTokenFromURL = () => {
     // Implement your logic to retrieve the id_token from the URL
-    const searchParams = new URLSearchParams(window.location.search);
-    return searchParams.get('id_token');
+    const hashParams = new URLSearchParams(window.location.hash.slice(1));
+    return hashParams.get('id_token');
   };
 
   const storeToken = (token) => {
